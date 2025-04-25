@@ -52,8 +52,9 @@ export const schema = BlockNoteSchema.create({
     mention: Mention,
   },
 });
+const extendedSchema = withMultiColumn(schema);
 
-const insertAlert = (editor: typeof schema.BlockNoteEditor) => ({
+const insertAlert = (editor: typeof extendedSchema.BlockNoteEditor) => ({
   title: "Alert",
   onItemClick: () => {
     insertOrUpdateBlock(editor, {
@@ -74,7 +75,7 @@ const insertAlert = (editor: typeof schema.BlockNoteEditor) => ({
   subtext: "Highlight important info.",
 });
 
-const insertBlockquote = (editor: typeof schema.BlockNoteEditor) => ({
+const insertBlockquote = (editor: typeof extendedSchema.BlockNoteEditor) => ({
   title: "Blockquote",
   onItemClick: () => {
     insertOrUpdateBlock(editor, {
@@ -87,7 +88,9 @@ const insertBlockquote = (editor: typeof schema.BlockNoteEditor) => ({
   subtext: "Emphasize quotes or references.",
 });
 
-const insertMathExpression = (editor: typeof schema.BlockNoteEditor) => ({
+const insertMathExpression = (
+  editor: typeof extendedSchema.BlockNoteEditor
+) => ({
   title: "Math Expression",
   onItemClick: () => {
     insertOrUpdateBlock(editor, {
@@ -100,7 +103,7 @@ const insertMathExpression = (editor: typeof schema.BlockNoteEditor) => ({
   subtext: "Display math or science equations.",
 });
 
-const insertHR = (editor: typeof schema.BlockNoteEditor) => ({
+const insertHR = (editor: typeof extendedSchema.BlockNoteEditor) => ({
   title: "Horizontal Rule",
   onItemClick: () => {
     insertOrUpdateBlock(editor, {
@@ -113,7 +116,7 @@ const insertHR = (editor: typeof schema.BlockNoteEditor) => ({
   subtext: "Insert a horizontal line to separate content.",
 });
 
-const insertIframe = (editor: typeof schema.BlockNoteEditor) => ({
+const insertIframe = (editor: typeof extendedSchema.BlockNoteEditor) => ({
   title: "I-Frame",
   onItemClick: () => {
     insertOrUpdateBlock(editor, {
@@ -127,7 +130,7 @@ const insertIframe = (editor: typeof schema.BlockNoteEditor) => ({
 });
 
 const getMentionMenuItems = (
-  editor: typeof schema.BlockNoteEditor
+  editor: typeof extendedSchema.BlockNoteEditor
 ): DefaultReactSuggestionItem[] => {
   const users = ["people", "everyone", "someone", "noone", "admin", "author"];
 
@@ -149,7 +152,7 @@ const getMentionMenuItems = (
 
 export default function Editor() {
   const editor = useCreateBlockNote({
-    schema: withMultiColumn(schema),
+    schema: extendedSchema,
     dropCursor: multiColumnDropCursor,
     dictionary: {
       ...en,
