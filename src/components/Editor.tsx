@@ -157,7 +157,7 @@ export default function Editor() {
     },
     placeholders: {
       ...en.placeholders,
-      emptyDocument: "NoteX Editor...",
+      emptyDocument: "NoteX Editor... Click and start typing.",
     },
     tables: {
       cellBackgroundColor: true,
@@ -190,7 +190,6 @@ export default function Editor() {
       <BlockNoteView
         editor={editor}
         slashMenu={false}
-        
         className="h-screen w-full"
       >
         <SuggestionMenuController
