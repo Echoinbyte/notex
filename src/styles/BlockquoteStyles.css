@@ -1,0 +1,13 @@
+.editor-blockquote {
+  display: block;
+  margin-block-start: 1em;
+  margin-block-end: 1em;
+  margin-inline-start: 40px;
+  margin-inline-end: 40px;
+  unicode-bidi: isolate;
+
+  border-left: 4px solid #507aff;
+  padding-left: 24px;
+  line-height: 1.6;
+  margin: 24px 0;
+}

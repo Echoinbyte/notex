@@ -1,0 +1,33 @@
+.section-divider {
+  width: 100%;
+  border: 0;
+  overflow: visible;
+  padding: 24px 0 10px 0;
+  margin: 24px 0 14px 0;
+  display: flex;
+  justify-content: center;
+}
+
+.section-divider:before {
+  font-family: medium-content-slab-serif-font, Georgia, Cambria,
+    "Times New Roman", Times, serif;
+  font-weight: 400;
+  font-style: italic;
+  font-size: 30px;
+  letter-spacing: 0.6em;
+}
+.section-divider:before {
+  content: "...";
+  display: inline-block;
+  margin-left: 0.6em;
+  color: rgba(0, 0, 0, 0.68);
+  position: relative;
+  top: -30px;
+}
+
+@media (max-width: 767px) {
+  .section-divider {
+    font-size: 24px;
+    line-height: 1.4;
+  }
+}
